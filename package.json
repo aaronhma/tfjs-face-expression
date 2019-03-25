@@ -7,7 +7,10 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "postinstall": "node src/patch.js",
+    "build:ghpage": "ng build --prod --base-href 'https://aaronhma.github.io/tfjs-face-expression/'",
+    "deploy": "npm run build:ghpage && npx angular-cli-ghpages --dir=dist/tfjs-face-expression"
   },
   "private": true,
   "dependencies": {
@@ -19,7 +22,10 @@
     "@angular/platform-browser": "~7.2.0",
     "@angular/platform-browser-dynamic": "~7.2.0",
     "@angular/router": "~7.2.0",
+    "@tensorflow/tfjs": "^1.0.2",
+    "angular-cli-ghpages": "^0.5.3",
     "core-js": "^2.5.4",
+    "face-api.js": "^0.18.0",
     "rxjs": "~6.3.3",
     "tslib": "^1.9.0",
     "zone.js": "~0.8.26"
@@ -29,9 +35,9 @@
     "@angular/cli": "~7.3.6",
     "@angular/compiler-cli": "~7.2.0",
     "@angular/language-service": "~7.2.0",
-    "@types/node": "~8.9.4",
     "@types/jasmine": "~2.8.8",
     "@types/jasminewd2": "~2.0.3",
+    "@types/node": "~8.9.4",
     "codelyzer": "~4.5.0",
     "jasmine-core": "~2.99.1",
     "jasmine-spec-reporter": "~4.2.1",
